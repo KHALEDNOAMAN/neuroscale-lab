@@ -2,6 +2,35 @@
 
 *A reproducible scientific data platform for multiscale neural complexity and cognitive workload modeling.*
 
+[![CI](https://github.com/SoheilGtex/neuroscale-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/SoheilGtex/neuroscale-lab/actions)
+[![Release](https://img.shields.io/github/v/release/SoheilGtex/neuroscale-lab)](https://github.com/SoheilGtex/neuroscale-lab/releases/tag/v0.1.0)
+
+## Research snapshot
+
+**NeuroScale Lab** is a reproducible research software platform testing whether
+EEG permutation-entropy features provide incremental predictive value over
+conventional spectral features for cognitive workload classification.
+
+| Metric | Full-cohort result |
+|---|---:|
+| Participants | 18 |
+| EEG channels per participant | 19 |
+| Retained task events | 4,442 |
+| Per-channel feature records | 1,012,776 |
+| Spectral logistic regression (balanced accuracy) | 0.2655 |
+| Combined logistic regression (balanced accuracy) | 0.2616 |
+| Four-class majority baseline | 0.2500 |
+
+**Exploratory finding:** Entropy-derived features did not demonstrate an
+incremental predictive benefit over the spectral-only logistic baseline in
+five-fold participant-grouped evaluation. This does not establish that neural
+entropy is generally uninformative; the results are neither clinical nor causal.
+
+**[Download v0.1.0 and the full-cohort SQLite database](https://github.com/SoheilGtex/neuroscale-lab/releases/tag/v0.1.0)**
+
+![Full-cohort grouped model comparison](results/full-cohort/figures/model_comparison.png)
+
+
 ## Research questions
 
 1. Do permutation entropy and multiscale permutation entropy add information beyond conventional EEG spectral features when workload is varied by a 1–4-back task?
@@ -31,19 +60,17 @@ The demo creates `results/demo/neuroscale.sqlite` and inserts explicitly labeled
 The current verified empirical run covers all 18 released participants. It retained 4,442 of 8,665 labeled task events after excluding tutorials, dropout-overlapping windows, and one boundary-invalid epoch. Per-channel extraction generated 1,012,776 feature rows, integrated them into SQLite, and evaluated spectral-only, entropy-only, combined, and majority-baseline models with participant-grouped five-fold cross-validation. See `results/full-cohort/research-report.md`, `docs/verification-manifest.json`, and `docs/statistical-analysis-plan.md`.
 
 ```bash
-make test
-make lint
-make demo
-PYTHONPATH=src python3 scripts/run_cohort_subset.py --subjects sub-001 sub-002 sub-003 sub-004
-PYTHONPATH=src python3 - <<'PY'
-import pandas as pd
-from neuroscale.models.evaluate import evaluate_grouped
-table = pd.read_parquet('results/full-cohort/features.parquet')
-print(evaluate_grouped(table, n_splits=4))
-PY
-PYTHONPATH=src python3 scripts/integrate_cohort.py --features results/full-cohort/features.parquet --qc results/full-cohort/qc_report.csv --models results/full-cohort/model_evaluations.csv --output results/full-cohort/neuroscale.sqlite
-python3 scripts/make_figures.py
+# Run tests, lint, and a small synthetic demo (does not download EEG recordings)
+make verify
+
+# Inspect the already-published full-cohort feature table
+python -c "import pandas as pd; t = pd.read_parquet('results/full-cohort/features.parquet'); print('Feature rows:', len(t)); print('Participants:', t['subject_code'].nunique())"
 ```
+
+To reprocess the full cohort from raw EEG, download the version-pinned dataset
+using the acquisition scripts and follow the research documentation. The raw
+recordings and large SQLite database are intentionally excluded from Git.
+
 
 The public raw files are downloaded separately and excluded from release archives. The full-cohort result is observational and exploratory; it is not a clinical or causal claim.
 
