@@ -3,7 +3,7 @@
 *A reproducible scientific data platform for multiscale neural complexity and cognitive workload modeling.*
 
 [![CI](https://github.com/SoheilGtex/neuroscale-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/SoheilGtex/neuroscale-lab/actions)
-[![Release](https://img.shields.io/github/v/release/SoheilGtex/neuroscale-lab)](https://github.com/SoheilGtex/neuroscale-lab/releases/tag/v0.1.0)
+[![Release](https://img.shields.io/github/v/release/SoheilGtex/neuroscale-lab)](https://github.com/SoheilGtex/neuroscale-lab/releases/latest)
 
 ## Research snapshot
 
@@ -26,7 +26,7 @@ incremental predictive benefit over the spectral-only logistic baseline in
 five-fold participant-grouped evaluation. This does not establish that neural
 entropy is generally uninformative; the results are neither clinical nor causal.
 
-**[Download v0.1.0 and the full-cohort SQLite database](https://github.com/SoheilGtex/neuroscale-lab/releases/tag/v0.1.0)**
+**[Download v0.1.1 and the full-cohort SQLite database](https://github.com/SoheilGtex/neuroscale-lab/releases/tag/v0.1.1)**
 
 ![Full-cohort grouped model comparison](results/full-cohort/figures/model_comparison.png)
 
