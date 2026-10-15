@@ -66,5 +66,51 @@
       "artifact": "Dockerfile",
       "observed": "Docker unavailable in sandbox"
     }
-  ]
+  ],
+  "post_hotfix_verification": {
+    "date": "2026-10-15",
+    "environment": {
+      "platform": "macOS arm64",
+      "python": "3.13"
+    },
+    "source_hotfix_commit": "ce85f77",
+    "readme_commit": "f9c5d45",
+    "checks": [
+      {
+        "name": "hotfix_tests",
+        "status": "PASS",
+        "command": "python -m pytest -q",
+        "observed": "18 passed"
+      },
+      {
+        "name": "hotfix_lint",
+        "status": "PASS",
+        "command": "python -m ruff check src tests scripts",
+        "observed": "All checks passed"
+      },
+      {
+        "name": "boundary_qc_sqlite",
+        "status": "PASS",
+        "command": "python scripts/repair_qc_boundary.py <local SQLite database>",
+        "observed": "event_id 11986: exclude / boundary_invalid; integrity_check ok; 0 foreign-key violations"
+      },
+      {
+        "name": "hotfix_ci",
+        "status": "PASS",
+        "url": "https://github.com/SoheilGtex/neuroscale-lab/actions/runs/38729980236"
+      },
+      {
+        "name": "readme_ci",
+        "status": "PASS",
+        "url": "https://github.com/SoheilGtex/neuroscale-lab/actions/runs/38732006785"
+      },
+      {
+        "name": "docker_execution",
+        "status": "NOT RUN",
+        "observed": "No verified execution"
+      }
+    ],
+    "release_database_zip_sha256": "b8cf06511733404dc44696794578307c2f335208e3ddde9ac5379b832f841efd",
+    "note": "The original Phase 3 Linux verification record remains unchanged; no EEG extraction or model rerun is claimed for the hotfix."
+  }
 }
