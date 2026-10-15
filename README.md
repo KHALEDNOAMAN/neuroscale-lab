@@ -26,9 +26,9 @@ incremental predictive benefit over the spectral-only logistic baseline in
 five-fold participant-grouped evaluation. This does not establish that neural
 entropy is generally uninformative; the results are neither clinical nor causal.
 
-**Evaluation provenance:** The metrics above come from the [corrected reanalysis](results/full-cohort/reanalysis-2026-10-15/README.md). The v0.1.1 SQLite release retains historical model-evaluation records; it has not been rebuilt with corrected model results.
+**Evaluation provenance:** The metrics above come from the [corrected reanalysis](results/full-cohort/reanalysis-2026-10-15/README.md). The v0.1.1 SQLite release retains historical model-evaluation records. The v0.1.2 SQLite release includes corrected model-evaluation records; the other research tables are unchanged. Processing-run version metadata is inherited from the historical database.
 
-**[Download v0.1.1 and the full-cohort SQLite database](https://github.com/SoheilGtex/neuroscale-lab/releases/tag/v0.1.1)**
+**[Download v0.1.2 and the corrected full-cohort SQLite database](https://github.com/SoheilGtex/neuroscale-lab/releases/tag/v0.1.2)**
 
 ![Historical versus corrected model comparison](results/full-cohort/reanalysis-2026-10-15/model_accuracy_comparison.png)
 
