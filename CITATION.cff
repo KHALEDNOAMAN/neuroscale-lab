@@ -1,7 +1,12 @@
 cff-version: 1.2.0
 title: "NeuroScale Lab"
-message: "If you use this software, cite the repository and the dataset separately."
+message: "If you use this software, cite this repository and the original EEG dataset separately."
 type: software
-version: 0.1.1
+version: "0.1.1"
+date-released: "2026-10-15"
+repository-code: "https://github.com/SoheilGtex/neuroscale-lab"
+url: "https://github.com/SoheilGtex/neuroscale-lab"
+license: "MIT"
 authors:
-  - name: "NeuroScale Lab contributors"
+  - family-names: "Salmani"
+    given-names: "Soheil"
