@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Iterable
 from dataclasses import dataclass
 
 import numpy as np
@@ -72,6 +73,27 @@ def make_logistic_pipeline():
     )
 
 
+def select_feature_sets(columns: Iterable[str]) -> dict[str, list[str]]:
+    """Select feature groups from plain and channel-prefixed feature names.
+
+    Full-cohort names are like 'Fp1__mpe_scale_2', not 'mpe_scale_2'.
+    Preserve the existing spectral selection policy; fix the entropy selection.
+    """
+    names = list(columns)
+    return {
+        "spectral": [
+            c for c in names
+            if any(token in c for token in ("delta", "theta", "alpha", "beta"))
+        ],
+        "entropy": [
+            c for c in names
+            if "entropy" in c.rsplit("__", 1)[-1]
+            or c.rsplit("__", 1)[-1].startswith("mpe_scale_")
+        ],
+        "combined": names,
+    }
+
+
 def evaluate_grouped(table: pd.DataFrame, n_splits: int = 5) -> list[FoldResult]:
     """Evaluate fixed models with participant-grouped folds.
 
@@ -84,11 +106,7 @@ def evaluate_grouped(table: pd.DataFrame, n_splits: int = 5) -> list[FoldResult]
     if len(unique_groups) < 3:
         raise ValueError("at least three participants are required for grouped evaluation")
     n_splits = min(n_splits, len(unique_groups))
-    feature_sets = {
-        "spectral": [c for c in x if any(token in c for token in ("delta", "theta", "alpha", "beta"))],
-        "entropy": [c for c in x if c == "permutation_entropy" or "entropy" in c or c.startswith("mpe_scale_")],
-        "combined": list(x.columns),
-    }
+    feature_sets = select_feature_sets(x.columns)
     models = {
         "logistic_regression": make_logistic_pipeline(),
         "hist_gradient_boosting": make_pipeline(

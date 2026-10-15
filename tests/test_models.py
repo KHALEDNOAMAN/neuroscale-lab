@@ -2,7 +2,11 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from neuroscale.models.evaluate import evaluate_grouped, make_logistic_pipeline
+from neuroscale.models.evaluate import (
+    evaluate_grouped,
+    make_logistic_pipeline,
+    select_feature_sets,
+)
 
 
 def synthetic_table() -> pd.DataFrame:
@@ -42,3 +46,32 @@ def test_heldout_values_do_not_change_training_imputation_or_scaling():
     assert np.array_equal(first_imputer.statistics_, altered_imputer.statistics_)
     assert np.array_equal(first.named_steps["standardscaler"].mean_, altered.named_steps["standardscaler"].mean_)
     assert not np.isnan(first.predict(x_test)).any()
+
+
+def test_channel_prefixed_multiscale_entropy_is_selected():
+    columns = [
+        "Fp1__delta",
+        "Fp1__permutation_entropy",
+        "Fp1__mpe_scale_2",
+        "Fz__mpe_scale_4",
+        "Cz__mpe_scale_8",
+        "Fz__beta",
+    ]
+    selected = select_feature_sets(columns)
+    assert selected["entropy"] == [
+        "Fp1__permutation_entropy",
+        "Fp1__mpe_scale_2",
+        "Fz__mpe_scale_4",
+        "Cz__mpe_scale_8",
+    ]
+    assert selected["spectral"] == ["Fp1__delta", "Fz__beta"]
+    assert selected["combined"] == columns
+
+
+def test_unprefixed_multiscale_entropy_is_selected():
+    selected = select_feature_sets([
+        "permutation_entropy", "mpe_scale_2", "mpe_scale_4", "alpha"
+    ])
+    assert selected["entropy"] == [
+        "permutation_entropy", "mpe_scale_2", "mpe_scale_4"
+    ]
