@@ -1,0 +1,2 @@
+feature,contrast,mean_difference,std_difference,t_statistic,p_value_uncorrected,n_subjects
+permutation_entropy,4-back minus 1-back,0.003931723637249535,0.01907323020413849,0.8745708249399778,0.3939956272261027,18

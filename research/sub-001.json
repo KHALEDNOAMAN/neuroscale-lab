@@ -1,0 +1,1 @@
+{"dataset_id":"on007169","version":"v1.0.0","path":"sub-001","kind":"directory","children":[{"kind":"dir","name":"ecg"},{"kind":"dir","name":"eeg"},{"kind":"dir","name":"pupil"},{"kind":"file","name":"sub-001_scans.tsv","size":57}]}

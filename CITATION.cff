@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+title: "NeuroScale Lab"
+message: "If you use this software, cite the repository and the dataset separately."
+type: software
+version: 0.1.0
+authors:
+  - name: "NeuroScale Lab contributors"

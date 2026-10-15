@@ -1,0 +1,79 @@
+{
+  "StimulusPresentation": {},
+  "marker_stream": {
+    "Description": "LSL marker stream name that generated this event.",
+    "Levels": {
+      "UoHDataOffsetStream": "Marker stream reporting dropped sample counts (e.g., 'Dropped N samples').",
+      "n-backMarkers": "Task marker stream for the n-back paradigm."
+    }
+  },
+  "trial_type": {
+    "Description": "Event type / condition label.",
+    "Levels": {
+      "1-back": "N-back trial with nback_level=1.",
+      "2-back": "N-back trial with nback_level=2.",
+      "3-back": "N-back trial with nback_level=3.",
+      "4-back": "N-back trial with nback_level=4.",
+      "dropped_samples": "Dropout annotation from acquisition (dropped samples).",
+      "finished_n_back": "Task marker.",
+      "finished_tutorial_n_back": "Task marker.",
+      "started_n_back": "Task marker.",
+      "started_tutorial_n_back": "Task marker."
+    }
+  },
+  "timestamp_lsl": {
+    "Description": "Original LSL timestamp for this marker.",
+    "Units": "s"
+  },
+  "marker": {
+    "Description": "Raw marker string emitted on the LSL marker stream."
+  },
+  "nback_level": {
+    "Description": "N-back level (1-4) when applicable."
+  },
+  "key_press": {
+    "Description": "Whether a response key was pressed on this trial.",
+    "Levels": {
+      "true": "Key pressed.",
+      "false": "No key press.",
+      "True": "Key pressed.",
+      "False": "No key press."
+    }
+  },
+  "matched": {
+    "Description": "Whether the stimulus matched the N-back target on this trial.",
+    "Levels": {
+      "true": "Stimulus matched.",
+      "false": "No match.",
+      "True": "Stimulus matched.",
+      "False": "No match."
+    }
+  },
+  "dropped_samples": {
+    "Description": "Number of dropped samples reported by the dropout stream.",
+    "Units": "samples"
+  },
+  "response_accuracy": {
+    "Description": "1=correct, 0=incorrect (when applicable).",
+    "Levels": {
+      "1": "Correct response.",
+      "0": "Incorrect response."
+    }
+  },
+  "istutorial": {
+    "Description": "Whether this trial was marked as tutorial (when applicable).",
+    "Levels": {
+      "True": "Tutorial.",
+      "False": "Non-tutorial.",
+      "true": "Tutorial.",
+      "false": "Non-tutorial."
+    }
+  },
+  "outcome": {
+    "Description": "Correct/Wrong (when applicable).",
+    "Levels": {
+      "Correct": "Correct.",
+      "Wrong": "Wrong."
+    }
+  }
+}

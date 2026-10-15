@@ -1,0 +1,28 @@
+{
+  "Name": "Multimodal Cognitive Workload n-back Task, 4 Difficulties",
+  "BIDSVersion": "1.9.0",
+  "DatasetType": "raw",
+  "License": "CC0",
+  "Authors": [
+    "Matthew Barras",
+    "Liam Booth"
+  ],
+  "GeneratedBy": [
+    {
+      "Name": "MNE-BIDS",
+      "Version": "0.18.0",
+      "CodeURL": "https://mne.tools/mne-bids/"
+    }
+  ],
+  "SourceDatasets": [
+    {
+      "Directory": "sourcedata",
+      "Version": "1.0.0"
+    },
+    {
+      "DOI": "doi:10.18112/openneuro.ds007169.v1.0.5"
+    }
+  ],
+  "DatasetDOI": "10.82901/nemar.on007169",
+  "Version": "1.0.0"
+}

@@ -1,0 +1,5 @@
+task_events,included,tutorial_excluded,dropout_excluded,boundary_excluded,subject_code
+481,263,81,137,0,sub-001
+481,308,81,92,0,sub-002
+481,222,81,178,0,sub-003
+481,238,81,162,0,sub-004

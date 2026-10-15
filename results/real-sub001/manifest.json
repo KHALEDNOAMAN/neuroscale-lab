@@ -1,0 +1,35 @@
+{
+  "source_files": {
+    "sub-001_task-nback_channels.tsv": {
+      "bytes": 1439,
+      "sha256": "28cb373f00a697d907b696bb47bfd92c5c718826e72675c57dcdb38b8335c98a"
+    },
+    "sub-001_task-nback_eeg.eeg": {
+      "bytes": 23004288,
+      "sha256": "3c11cf303edcc5a4b304570cce0649c8effaeed260d58e5f35374fc2401bf8e9"
+    },
+    "sub-001_task-nback_eeg.json": {
+      "bytes": 413,
+      "sha256": "3af51b80ce907894bd0ed7fd0b688ccfcd4927df95729d876b91bee8d0864d32"
+    },
+    "sub-001_task-nback_eeg.vhdr": {
+      "bytes": 1121,
+      "sha256": "da6fa3b809a7e4d5deec2d5d32a55350b167b980ee610fffc2c59c403eda46fd"
+    },
+    "sub-001_task-nback_eeg.vmrk": {
+      "bytes": 522,
+      "sha256": "3d166fb280ec16d7f15962829b475c2da5f9d753021917dd1915b8a6a12ced34"
+    },
+    "sub-001_task-nback_events.tsv": {
+      "bytes": 96896,
+      "sha256": "b8430487a5d38530868b6e12c855beed10380fe4dd06d672a7c52738d427a559"
+    }
+  },
+  "sfreq": 250.0,
+  "eeg_channels": 19,
+  "selected_events": 400,
+  "feature_rows": 4800,
+  "tutorial_events_excluded": true,
+  "channel_reduction": "mean across EEG channels",
+  "window_seconds": 1.0
+}

@@ -1,0 +1,162 @@
+{
+  "subjects": [
+    {
+      "subject_code": "sub-001",
+      "sampling_frequency": 250.0,
+      "eeg_channels": 19,
+      "window_seconds": 1.0,
+      "qc": {
+        "task_events": 481,
+        "included": 263,
+        "tutorial_excluded": 81,
+        "dropout_excluded": 137,
+        "boundary_excluded": 0
+      },
+      "source_files": {
+        "sub-001_task-nback_channels.tsv": {
+          "bytes": 1439,
+          "sha256": "28cb373f00a697d907b696bb47bfd92c5c718826e72675c57dcdb38b8335c98a"
+        },
+        "sub-001_task-nback_eeg.eeg": {
+          "bytes": 23004288,
+          "sha256": "3c11cf303edcc5a4b304570cce0649c8effaeed260d58e5f35374fc2401bf8e9"
+        },
+        "sub-001_task-nback_eeg.json": {
+          "bytes": 413,
+          "sha256": "3af51b80ce907894bd0ed7fd0b688ccfcd4927df95729d876b91bee8d0864d32"
+        },
+        "sub-001_task-nback_eeg.vhdr": {
+          "bytes": 1121,
+          "sha256": "da6fa3b809a7e4d5deec2d5d32a55350b167b980ee610fffc2c59c403eda46fd"
+        },
+        "sub-001_task-nback_eeg.vmrk": {
+          "bytes": 522,
+          "sha256": "3d166fb280ec16d7f15962829b475c2da5f9d753021917dd1915b8a6a12ced34"
+        },
+        "sub-001_task-nback_events.tsv": {
+          "bytes": 96896,
+          "sha256": "b8430487a5d38530868b6e12c855beed10380fe4dd06d672a7c52738d427a559"
+        }
+      }
+    },
+    {
+      "subject_code": "sub-002",
+      "sampling_frequency": 250.0,
+      "eeg_channels": 19,
+      "window_seconds": 1.0,
+      "qc": {
+        "task_events": 481,
+        "included": 308,
+        "tutorial_excluded": 81,
+        "dropout_excluded": 92,
+        "boundary_excluded": 0
+      },
+      "source_files": {
+        "sub-002_task-nback_channels.tsv": {
+          "bytes": 1439,
+          "sha256": "28cb373f00a697d907b696bb47bfd92c5c718826e72675c57dcdb38b8335c98a"
+        },
+        "sub-002_task-nback_eeg.eeg": {
+          "bytes": 22831488,
+          "sha256": "efa4596e6e242069294e2ddd2cff2cc53d41f4158fd048a1b7603e5a99857911"
+        },
+        "sub-002_task-nback_eeg.json": {
+          "bytes": 413,
+          "sha256": "af729cd9a62e3ff35a69e02ca293c2e24f6dac46f4d90e82a1e773e41b7810bf"
+        },
+        "sub-002_task-nback_eeg.vhdr": {
+          "bytes": 1121,
+          "sha256": "296c5eddcca51c0c362fb632d1f6462f5cdebe3aab5e202f1c4ae024457ee19a"
+        },
+        "sub-002_task-nback_eeg.vmrk": {
+          "bytes": 522,
+          "sha256": "24a02697e04e5058cd1b87bff5fcf3e87b72454877ede08520d946ab8fa8f445"
+        },
+        "sub-002_task-nback_events.tsv": {
+          "bytes": 84431,
+          "sha256": "e14d172209b2c63900c33d754620dd567f5fbccbbc318c6f08ae3749e0bf2dd6"
+        }
+      }
+    },
+    {
+      "subject_code": "sub-003",
+      "sampling_frequency": 250.0,
+      "eeg_channels": 19,
+      "window_seconds": 1.0,
+      "qc": {
+        "task_events": 481,
+        "included": 222,
+        "tutorial_excluded": 81,
+        "dropout_excluded": 178,
+        "boundary_excluded": 0
+      },
+      "source_files": {
+        "sub-003_task-nback_channels.tsv": {
+          "bytes": 1439,
+          "sha256": "7c0d4ff05e279b4832c7bc6a5ab2b4099dd08a4d391c2baed02cba6a51d50dd9"
+        },
+        "sub-003_task-nback_eeg.eeg": {
+          "bytes": 23492736,
+          "sha256": "eada2f16948720e3f89266a69229244f0fde7ece85ff9609f87c4e22a687eb17"
+        },
+        "sub-003_task-nback_eeg.json": {
+          "bytes": 412,
+          "sha256": "2b5f1b3700abe86b96420853d61bc2d859fc8da4327948bb635849b57789cd18"
+        },
+        "sub-003_task-nback_eeg.vhdr": {
+          "bytes": 1121,
+          "sha256": "f929c8af853e657943d29eb367ca3e41a6191f21208fdbd3ea93ead7be45c4d9"
+        },
+        "sub-003_task-nback_eeg.vmrk": {
+          "bytes": 522,
+          "sha256": "32e6d392fd330e19b6de6579e7d328f63f157184999d8e233e1b33759362ebd1"
+        },
+        "sub-003_task-nback_events.tsv": {
+          "bytes": 124807,
+          "sha256": "0b3ddc70898be53bf682e6550470f5420c93bb4e866ed77104876b8367b94e0b"
+        }
+      }
+    },
+    {
+      "subject_code": "sub-004",
+      "sampling_frequency": 250.0,
+      "eeg_channels": 19,
+      "window_seconds": 1.0,
+      "qc": {
+        "task_events": 481,
+        "included": 238,
+        "tutorial_excluded": 81,
+        "dropout_excluded": 162,
+        "boundary_excluded": 0
+      },
+      "source_files": {
+        "sub-004_task-nback_channels.tsv": {
+          "bytes": 1439,
+          "sha256": "28cb373f00a697d907b696bb47bfd92c5c718826e72675c57dcdb38b8335c98a"
+        },
+        "sub-004_task-nback_eeg.eeg": {
+          "bytes": 23856192,
+          "sha256": "a010fd514af56e0b6bca631e081635893fb40e4555fd555da3997e85af3b6ad6"
+        },
+        "sub-004_task-nback_eeg.json": {
+          "bytes": 413,
+          "sha256": "3c0a505adef5bb2f541c36d6b1076151adf6cf752472c4dade3a550892bce78f"
+        },
+        "sub-004_task-nback_eeg.vhdr": {
+          "bytes": 1121,
+          "sha256": "1e5775331c7a2576b389d8538e64c154e5ae95942c9b9b9b4b7d88a9ee04002b"
+        },
+        "sub-004_task-nback_eeg.vmrk": {
+          "bytes": 522,
+          "sha256": "4ff35e3a6a5cd7a5d92b25d8c6fda9942dd5fbcb1bdfedb685890451a0e7a6b2"
+        },
+        "sub-004_task-nback_events.tsv": {
+          "bytes": 124147,
+          "sha256": "f0cc0e6f4e4901cd28b3b0ca479b63767e26158fe39271e12e201accf7823f19"
+        }
+      }
+    }
+  ],
+  "feature_rows": 12372,
+  "policy": "tutorials and windows intersecting dropout markers excluded; 1-second boundary-checked windows; mean across EEG channels"
+}

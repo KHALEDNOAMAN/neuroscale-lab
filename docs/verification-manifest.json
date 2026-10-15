@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "environment": {
+    "python": "3.12",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "mne": "1.13.2",
+    "pytest": "9.1.1",
+    "ruff": "0.17.0"
+  },
+  "checks": [
+    {
+      "name": "full_released_cohort_processing",
+      "status": "PASS",
+      "command": "PYTHONPATH=src python3 scripts/run_cohort_subset.py --subjects ...",
+      "artifact": "results/full-cohort/manifest.json",
+      "observed": "18 participants; 1012776 channel-feature rows"
+    },
+    {
+      "name": "grouped_evaluation",
+      "status": "PASS",
+      "command": "evaluate_grouped(features,n_splits=5)",
+      "artifact": "results/full-cohort/model_evaluations.csv",
+      "observed": "45 folds: 3 feature groups x 3 models x 5 folds"
+    },
+    {
+      "name": "participant_level_statistics",
+      "status": "PASS",
+      "command": "full-cohort statistics script",
+      "artifact": "results/full-cohort/statistics.csv",
+      "observed": "n=18; mean contrast=0.003932; p=0.3940"
+    },
+    {
+      "name": "sqlite_integration",
+      "status": "PASS",
+      "command": "PYTHONPATH=src python3 scripts/integrate_cohort.py ...",
+      "artifact": "results/full-cohort/neuroscale.sqlite",
+      "observed": "18 participants; 342 channels; 19,095 events; 1,012,776 features; 45 evaluations; zero FK violations"
+    },
+    {
+      "name": "sql_benchmark",
+      "status": "PASS",
+      "command": "PYTHONPATH=src python3 scripts/benchmark_sql.py results/full-cohort/neuroscale.sqlite",
+      "artifact": "results/full-cohort/neuroscale.sqlite",
+      "observed": "160 timings per condition; query-plan difference recorded; index was slower for this aggregate, so no speedup is claimed"
+    },
+    {
+      "name": "automated_tests",
+      "status": "PASS",
+      "command": "pytest -q",
+      "artifact": "tests/",
+      "observed": "16 passed"
+    },
+    {
+      "name": "lint",
+      "status": "PASS",
+      "command": "ruff check --no-cache src tests scripts",
+      "artifact": "src/ tests/ scripts/",
+      "observed": "All checks passed"
+    },
+    {
+      "name": "docker_build",
+      "status": "NOT RUN",
+      "command": "docker build",
+      "artifact": "Dockerfile",
+      "observed": "Docker unavailable in sandbox"
+    }
+  ]
+}
