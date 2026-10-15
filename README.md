@@ -11,14 +11,14 @@
 EEG permutation-entropy features provide incremental predictive value over
 conventional spectral features for cognitive workload classification.
 
-| Metric | Full-cohort result |
+| Metric | Corrected full-cohort rerun (2026-10-15) |
 |---|---:|
 | Participants | 18 |
 | EEG channels per participant | 19 |
 | Retained task events | 4,442 |
 | Per-channel feature records | 1,012,776 |
-| Spectral logistic regression (balanced accuracy) | 0.2655 |
-| Combined logistic regression (balanced accuracy) | 0.2616 |
+| Spectral logistic regression (balanced accuracy) | 0.26616 |
+| Combined logistic regression (balanced accuracy) | 0.26225 |
 | Four-class majority baseline | 0.2500 |
 
 **Exploratory finding:** Entropy-derived features did not demonstrate an
@@ -26,9 +26,11 @@ incremental predictive benefit over the spectral-only logistic baseline in
 five-fold participant-grouped evaluation. This does not establish that neural
 entropy is generally uninformative; the results are neither clinical nor causal.
 
+**Evaluation provenance:** The metrics above come from the [corrected reanalysis](results/full-cohort/reanalysis-2026-10-15/README.md). The v0.1.1 SQLite release retains historical model-evaluation records; it has not been rebuilt with corrected model results.
+
 **[Download v0.1.1 and the full-cohort SQLite database](https://github.com/SoheilGtex/neuroscale-lab/releases/tag/v0.1.1)**
 
-![Full-cohort grouped model comparison](results/full-cohort/figures/model_comparison.png)
+![Historical versus corrected model comparison](results/full-cohort/reanalysis-2026-10-15/model_accuracy_comparison.png)
 
 
 ## Research questions

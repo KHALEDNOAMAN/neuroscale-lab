@@ -1,0 +1,49 @@
+{
+  "analysis": "Independent rerun after channel-prefixed multiscale entropy feature-selection correction",
+  "status": "reproducible on one observed macOS Python environment; cross-environment equivalence not established",
+  "staged_at_utc": "2026-10-15T14:02:29.964426+00:00",
+  "evaluation_commit": "09faa658305a6c300055d3173fc927cebd7f7a7e",
+  "dataset_subjects": 18,
+  "retained_epochs": 4442,
+  "channel_feature_records": 1012776,
+  "five_fold_evaluations": 45,
+  "feature_set_column_counts": {
+    "spectral": 152,
+    "entropy": 76,
+    "combined": 228
+  },
+  "mpe_channel_columns_selected": 57,
+  "method": "GroupKFold by subject, same test-subject assignments in historical and corrected outputs",
+  "sha256": {
+    "features_parquet": "2b9d1a385dedc8972be26625e4d4174b9482aac3dc625adbfd5716bec9f2912c",
+    "historical_model_evaluations_csv": "c0f1da9a0c873ba4fff8d5003dbec1d11aaed0070341a9084704c85a241fe09d",
+    "corrected_model_evaluations_csv": "86ea4e13a99bbf987277d76c6d4c36e844289e1520ba5328b925b87d48ecc6a5",
+    "repeat_corrected_model_evaluations_csv": "86ea4e13a99bbf987277d76c6d4c36e844289e1520ba5328b925b87d48ecc6a5"
+  },
+  "platform": "macOS-26.3-arm64-arm-64bit-Mach-O",
+  "python": "3.13.16",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "scikit_learn": "1.9.1",
+    "threadpoolctl": "3.7.0"
+  },
+  "loaded_threadpools": [
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 10,
+      "prefix": "libomp",
+      "version": null,
+      "library_filename": "libomp.dylib"
+    }
+  ],
+  "limitations": [
+    "Historical vs corrected logistic differences also appear in spectral-only folds; cause not established.",
+    "Repeated identical outputs support within-environment repeatability only.",
+    "Data-selected retained epochs and limited physiological artifact control restrict external validity.",
+    "Model differences have not been established as statistically significant.",
+    "The historical source and original published releases remain unchanged."
+  ]
+}
