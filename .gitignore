@@ -26,3 +26,6 @@ results/demo/neuroscale.sqlite
 __MACOSX/
 .env
 .env.*
+
+# Python package metadata
+*.egg-info/

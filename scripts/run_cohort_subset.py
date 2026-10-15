@@ -35,19 +35,28 @@ def process_subject(subject: str, root: Path, window_seconds: float) -> tuple[pd
     window_samples = round(window_seconds * sfreq)
     nperseg = max(4, window_samples // 2)
     for epoch_index, event in events.reset_index(drop=True).iterrows():
-        decision = classify_event(event, dropout_onsets, window_seconds)
+        decision = classify_event(
+            event, dropout_onsets, window_seconds,
+            sampling_frequency=sfreq, recording_samples=raw.n_times,
+        )
         if decision.level is None:
             continue
         counts["task_events"] += 1
         if not decision.include:
-            counts["tutorial_excluded" if decision.reason == "tutorial_event" else "dropout_excluded"] += 1
+            counter = {
+                "tutorial_event": "tutorial_excluded",
+                "dropout_overlap": "dropout_excluded",
+                "boundary_invalid": "boundary_excluded",
+            }.get(decision.reason)
+            if counter is None:
+                raise ValueError(f"Unhandled QC exclusion reason: {decision.reason}")
+            counts[counter] += 1
             continue
         onset = float(event.onset)
         start = round(onset * sfreq)
         stop = start + window_samples
         if start < 0 or stop > raw.n_times:
-            counts["boundary_excluded"] += 1
-            continue
+            raise AssertionError("Shared QC incorrectly included an out-of-bounds epoch")
         counts["included"] += 1
         signal = raw.get_data(picks=eeg_picks, start=start, stop=stop)
         for channel_name, channel_signal in zip(eeg_names, signal, strict=True):

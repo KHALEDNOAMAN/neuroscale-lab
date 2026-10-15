@@ -6,6 +6,7 @@ import hashlib
 import json
 from pathlib import Path
 
+import mne
 import pandas as pd
 
 from neuroscale.database.core import connect, initialize
@@ -58,11 +59,18 @@ def main() -> None:
         channel_ids[subject] = {}
         for channel_name in channel_names:
             channel_ids[subject][channel_name] = con.execute("INSERT INTO channel(recording_id,name) VALUES (?,?)", (rid, str(channel_name))).lastrowid
+        recording_header = mne.io.read_raw_brainvision(
+            eeg_dir / f"{prefix}_eeg.vhdr", preload=False, verbose="ERROR"
+        )
         events = pd.read_csv(eeg_dir / f"{prefix}_events.tsv", sep="\t")
         dropout_onsets = events.loc[events.trial_type.eq("dropped_samples"), "onset"].astype(float).tolist()
         for _, event in events.iterrows():
             dropped = 0 if pd.isna(event.get("dropped_samples")) else int(event.dropped_samples)
-            decision = classify_event(event, dropout_onsets, 1.0)
+            decision = classify_event(
+                event, dropout_onsets, 1.0,
+                sampling_frequency=float(recording_header.info["sfreq"]),
+                recording_samples=recording_header.n_times,
+            )
             level = decision.level
             tutorial = decision.tutorial
             accuracy = None if pd.isna(event.get("response_accuracy")) else int(event.response_accuracy)
